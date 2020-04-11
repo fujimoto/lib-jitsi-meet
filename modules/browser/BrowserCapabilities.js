@@ -1,5 +1,5 @@
 import { getLogger } from 'jitsi-meet-logger';
-import { BrowserDetection } from 'js-utils';
+import BrowserDetection from './BrowserDetection';
 
 const logger = getLogger(__filename);
 
