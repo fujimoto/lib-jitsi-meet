@@ -1,5 +1,6 @@
 /* global $, __filename */
 
+import * as $ from 'jquery'
 import {
     ACTION_JINGLE_TR_RECEIVED,
     ACTION_JINGLE_TR_SUCCESS,
