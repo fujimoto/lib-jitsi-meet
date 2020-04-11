@@ -1,4 +1,4 @@
-import browser from '../browser';
+import browser, { Browsers } from '../browser';
 
 import * as StatisticsEvents from '../../service/statistics/Events';
 import * as MediaType from '../../service/RTC/MediaType';
@@ -12,7 +12,7 @@ const logger = require('jitsi-meet-logger').getLogger(__filename);
  */
 const KEYS_BY_BROWSER_TYPE = {};
 
-KEYS_BY_BROWSER_TYPE[browser.FIREFOX] = {
+KEYS_BY_BROWSER_TYPE[Browsers.FIREFOX] = {
     'ssrc': 'ssrc',
     'packetsReceived': 'packetsReceived',
     'packetsLost': 'packetsLost',
@@ -24,7 +24,7 @@ KEYS_BY_BROWSER_TYPE[browser.FIREFOX] = {
     'port': 'port',
     'protocol': 'protocol'
 };
-KEYS_BY_BROWSER_TYPE[browser.CHROME] = {
+KEYS_BY_BROWSER_TYPE[Browsers.CHROME] = {
     'receiveBandwidth': 'googAvailableReceiveBandwidth',
     'sendBandwidth': 'googAvailableSendBandwidth',
     'remoteAddress': 'googRemoteAddress',
@@ -52,16 +52,16 @@ KEYS_BY_BROWSER_TYPE[browser.CHROME] = {
     'port': 'port',
     'protocol': 'protocol'
 };
-KEYS_BY_BROWSER_TYPE[browser.OPERA]
-    = KEYS_BY_BROWSER_TYPE[browser.CHROME];
-KEYS_BY_BROWSER_TYPE[browser.NWJS]
-    = KEYS_BY_BROWSER_TYPE[browser.CHROME];
-KEYS_BY_BROWSER_TYPE[browser.ELECTRON]
-    = KEYS_BY_BROWSER_TYPE[browser.CHROME];
-KEYS_BY_BROWSER_TYPE[browser.SAFARI]
-    = KEYS_BY_BROWSER_TYPE[browser.CHROME];
-KEYS_BY_BROWSER_TYPE[browser.REACT_NATIVE]
-    = KEYS_BY_BROWSER_TYPE[browser.CHROME];
+KEYS_BY_BROWSER_TYPE[Browsers.OPERA]
+    = KEYS_BY_BROWSER_TYPE[Browsers.CHROME];
+KEYS_BY_BROWSER_TYPE[Browsers.NWJS]
+    = KEYS_BY_BROWSER_TYPE[Browsers.CHROME];
+KEYS_BY_BROWSER_TYPE[Browsers.ELECTRON]
+    = KEYS_BY_BROWSER_TYPE[Browsers.CHROME];
+KEYS_BY_BROWSER_TYPE[Browsers.SAFARI]
+    = KEYS_BY_BROWSER_TYPE[Browsers.CHROME];
+KEYS_BY_BROWSER_TYPE[Browsers.REACT_NATIVE]
+    = KEYS_BY_BROWSER_TYPE[Browsers.CHROME];
 
 /**
  * Calculates packet lost percent using the number of lost packets and the
@@ -382,10 +382,10 @@ StatsCollector.prototype._defineGetStatValueMethod = function(keys) {
     let itemStatByKey;
 
     switch (this._browserType) {
-    case browser.CHROME:
-    case browser.OPERA:
-    case browser.NWJS:
-    case browser.ELECTRON:
+    case Browsers.CHROME:
+    case Browsers.OPERA:
+    case Browsers.NWJS:
+    case Browsers.ELECTRON:
         // TODO What about other types of browser which are based on Chrome such
         // as NW.js? Every time we want to support a new type browser we have to
         // go and add more conditions (here and in multiple other places).
@@ -395,7 +395,7 @@ StatsCollector.prototype._defineGetStatValueMethod = function(keys) {
         // retrieve the value associated with a specific key.
         itemStatByKey = (item, key) => item.stat(key);
         break;
-    case browser.REACT_NATIVE:
+    case Browsers.REACT_NATIVE:
         // The implementation provided by react-native-webrtc follows the
         // Objective-C WebRTC API: RTCStatsReport has a values property of type
         // Array in which each element is a key-value pair.

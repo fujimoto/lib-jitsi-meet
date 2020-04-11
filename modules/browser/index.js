@@ -1,4 +1,5 @@
 import BrowserCapabilities from './BrowserCapabilities';
+import * as Browsers from './browsers';
 
 export default new BrowserCapabilities();
-export { CHROME, OPERA, FIREFOX, INTERNET_EXPLORER, SAFARI, NWJS, ELECTRON, REACT_NATIVE, UNKNOWN } from './browsers';
+export { Browsers };

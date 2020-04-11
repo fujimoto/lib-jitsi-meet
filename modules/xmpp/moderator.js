@@ -1,5 +1,6 @@
 /* global $, Promise */
 
+import * as $ from 'jquery'
 const logger = require('jitsi-meet-logger').getLogger(__filename);
 
 import { $iq, Strophe } from 'strophe.js';

@@ -1,5 +1,6 @@
 /* global __filename, $ */
 
+import * as $ from 'jquery'
 import {
     ICE_DURATION,
     ICE_STATE_CHANGED

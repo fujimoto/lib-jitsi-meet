@@ -1,5 +1,6 @@
 /* global $ */
 
+import * as $ from 'jquery'
 import browser from '../browser';
 import SDPUtil from './SDPUtil';
 
