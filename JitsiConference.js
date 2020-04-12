@@ -1,4 +1,5 @@
 /* global __filename, $, Promise */
+import * as $ from 'jquery'
 import { Strophe } from 'strophe.js';
 
 import EventEmitter from 'events';

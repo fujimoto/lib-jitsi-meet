@@ -1,5 +1,6 @@
 /* global chrome, $, alert */
 
+import * as $ from 'jquery'
 import JitsiTrackError from '../../JitsiTrackError';
 import * as JitsiTrackErrors from '../../JitsiTrackErrors';
 import browser from '../browser';
